@@ -27,22 +27,30 @@ const manifest = deepmerge(
     name: '__MSG_extensionName__',
     version: packageJson.version,
     description: '__MSG_extensionDescription__',
-    host_permissions: ['<all_urls>'],
-    permissions: ['storage', 'scripting', 'tabs', 'notifications'],
-    options_page: 'options/index.html',
+    // host_permissions: ['<all_urls>'],
+    permissions: ['activeTab', 'scripting'],
+    // options_page: 'options/index.html',
     background: {
       service_worker: 'background.iife.js',
       type: 'module',
     },
     action: {
-      default_popup: 'popup/index.html',
-      default_icon: 'icon-34.png',
+      // default_popup: 'popup/index.html',
+      default_icon: {
+        16: 'assets/icons/icon-16.png',
+        32: 'assets/icons/icon-32.png',
+        48: 'assets/icons/icon-48.png',
+        128: 'assets/icons/icon-128.png',
+      },
     },
-    chrome_url_overrides: {
-      newtab: 'new-tab/index.html',
-    },
+    // chrome_url_overrides: {
+    //   newtab: 'new-tab/index.html',
+    // },
     icons: {
-      128: 'icon-128.png',
+      16: 'assets/icons/icon-16.png',
+      32: 'assets/icons/icon-32.png',
+      48: 'assets/icons/icon-48.png',
+      128: 'assets/icons/icon-128.png',
     },
     content_scripts: [
       {
@@ -56,16 +64,16 @@ const manifest = deepmerge(
       {
         matches: ['http://*/*', 'https://*/*', '<all_urls>'],
         js: ['refresh.js'], // for public's HMR(refresh) support
-        css: ['content.css'], // public folder
+        css: ['styles/content.css'], // public folder
       },
     ],
-    devtools_page: 'devtools/index.html',
-    web_accessible_resources: [
-      {
-        resources: ['*.js', '*.css', '*.svg', 'icon-128.png', 'icon-34.png'],
-        matches: ['*://*/*'],
-      },
-    ],
+    // devtools_page: 'devtools/index.html',
+    // web_accessible_resources: [
+    //   {
+    //     resources: ['*.js', '*.css', '*.svg', '*.png'],
+    //     matches: ['*://*/*'],
+    //   },
+    // ],
   },
   !isFirefox && sidePanelConfig,
 );

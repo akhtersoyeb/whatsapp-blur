@@ -1,0 +1,18 @@
+._ak8k {
+    background-color: lightgray;
+    width: 300px;
+    border-radius: 10px;
+    filter: blur(10px);
+}
+
+[role='listitem'] img {
+    filter: blur(10px)
+}
+
+.focusable-list-item {
+    filter: blur(10px);
+}
+
+.focusable-list-item:has(div:first-of-type:hover) {
+    filter: none;
+}

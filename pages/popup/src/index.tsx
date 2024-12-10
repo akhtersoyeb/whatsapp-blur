@@ -1,6 +1,9 @@
+import { MemoryRouter, Route, Routes } from 'react-router';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
-import '@src/index.css';
+import '@src/styles/index.css';
 import Popup from '@src/Popup';
+import Home from '@src/Home';
 
 function init() {
   const appContainer = document.querySelector('#app-container');
@@ -9,7 +12,16 @@ function init() {
   }
   const root = createRoot(appContainer);
 
-  root.render(<Popup />);
+  root.render(
+    <React.StrictMode>
+      <MemoryRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/popup" element={<Popup />} />
+        </Routes>
+      </MemoryRouter>
+    </React.StrictMode>,
+  );
 }
 
 init();
