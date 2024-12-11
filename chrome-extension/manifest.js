@@ -35,7 +35,7 @@ const manifest = deepmerge(
       type: 'module',
     },
     action: {
-      // default_popup: 'popup/index.html',
+      default_popup: 'popup/index.html',
       default_icon: {
         16: 'assets/icons/icon-16.png',
         32: 'assets/icons/icon-32.png',
@@ -52,21 +52,21 @@ const manifest = deepmerge(
       48: 'assets/icons/icon-48.png',
       128: 'assets/icons/icon-128.png',
     },
-    content_scripts: [
-      {
-        matches: ['http://*/*', 'https://*/*', '<all_urls>'],
-        js: ['content/index.iife.js'],
-      },
-      {
-        matches: ['http://*/*', 'https://*/*', '<all_urls>'],
-        js: ['content-ui/index.iife.js'],
-      },
-      {
-        matches: ['http://*/*', 'https://*/*', '<all_urls>'],
-        js: ['refresh.js'], // for public's HMR(refresh) support
-        css: ['styles/content.css'], // public folder
-      },
-    ],
+    // content_scripts: [
+    //   {
+    //     matches: ['http://*/*', 'https://*/*', '<all_urls>'],
+    //     js: ['content/index.iife.js'],
+    //   },
+    //   {
+    //     matches: ['http://*/*', 'https://*/*', '<all_urls>'],
+    //     js: ['content-ui/index.iife.js'],
+    //   },
+    //   {
+    //     matches: ['http://*/*', 'https://*/*', '<all_urls>'],
+    //     js: ['refresh.js'], // for public's HMR(refresh) support
+    //     css: ['styles/content.css'], // public folder
+    //   },
+    // ],
     // devtools_page: 'devtools/index.html',
     // web_accessible_resources: [
     //   {
